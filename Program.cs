@@ -6,14 +6,25 @@ namespace Obj_4._3._11
     {
         static void Main(string[] args)
         {
-            int[,] array = { {1,2,3}, {4,5,6}, {7,8,9}, {10,11,12} };
+            var arr = new int[] { 5, 6, 9, 1, 2, 3, 4 };
+            var k = 0;
 
-            for (int i = 0; i < array.GetUpperBound(1) + 1; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                for (int j = 0; j < array.GetUpperBound(0) + 1; j++)
-                    Console.Write(array[j, i] + " ");
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    if (arr[i] < arr[j])
+                    {
+                        k = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = k;
+                    }
+                }
+            }
 
-                Console.WriteLine();
+            foreach(var item in arr)
+            {
+                Console.Write(item + " ");
             }
         }
     }
